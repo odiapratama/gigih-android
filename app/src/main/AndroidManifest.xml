@@ -13,9 +13,13 @@
         android:theme="@style/Theme.GigihAndroid"
         tools:targetApi="31">
         <activity
+            android:name=".MenuActivity"
+            android:exported="false"
+            android:label="@string/title_activity_menu"
+            android:theme="@style/Theme.GigihAndroid" />
+        <activity
             android:name=".MainActivity"
             android:exported="true"
-            android:label="@string/app_name"
             android:theme="@style/Theme.GigihAndroid">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
