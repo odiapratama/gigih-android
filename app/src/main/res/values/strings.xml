@@ -21,4 +21,9 @@
     <string name="update">Update</string>
     <string name="delete">Delete</string>
     <string name="clear">Clear</string>
+    <string name="show_activity_lifecycle">Show Activity Lifecycle</string>
+    <string name="show_fragment_lifecycle">Show Fragment Lifecycle</string>
+    <string name="implicit_intent">Implicit Intent</string>
+    <string name="add_scheduled_notification">Add Scheduled Notification</string>
+    <string name="go_to_carousel">Go to carousel</string>
 </resources>
