@@ -11,11 +11,13 @@
         android:protectionLevel="signature" />
 
     <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
     <uses-permission android:name="android.permission.READ_CONTACTS" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 
     <application
+        android:name=".App"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
@@ -26,8 +28,11 @@
         android:theme="@style/Theme.GigihAndroid"
         tools:targetApi="31">
 
-        <service android:name=".utils.MusicService" />
-        <service android:name=".utils.BoundService" />
+        <service
+            android:name=".utils.MusicService"
+            android:exported="false" />
+        <service android:name=".utils.BoundService"
+            android:exported="false" />
 
         <provider
             android:name=".utils.DatabaseProvider"
@@ -37,13 +42,15 @@
             tools:ignore="ExportedContentProvider" />
 
         <activity
-            android:name=".MenuActivity"
-            android:exported="false"
+            android:name=".presentation.MenuActivity"
+            android:exported="true"
             android:label="@string/title_activity_menu"
-            android:theme="@style/Theme.GigihAndroid" />
+            android:theme="@style/Theme.GigihAndroid" >
+
+        </activity>
 
         <activity
-            android:name=".MainActivity"
+            android:name=".presentation.MainActivity"
             android:exported="true"
             android:theme="@style/Theme.GigihAndroid">
             <intent-filter>

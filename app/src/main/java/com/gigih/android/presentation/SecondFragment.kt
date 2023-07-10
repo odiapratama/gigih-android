@@ -1,4 +1,4 @@
-package com.gigih.android
+package com.gigih.android.presentation
 
 import android.content.ComponentName
 import android.content.ContentValues
@@ -13,7 +13,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
-import androidx.navigation.fragment.findNavController
 import com.gigih.android.databinding.FragmentSecondBinding
 import com.gigih.android.utils.BoundService
 import com.gigih.android.utils.DatabaseHelper
@@ -58,16 +57,28 @@ class SecondFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        initView()
         initDatabase()
         initListener()
     }
 
+    override fun onStop() {
+        super.onStop()
+        requireActivity().unbindService(serviceConnection)
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        cursorDatabase?.close()
+    }
+
+    private fun initView() {
+        val data = arguments?.getString("dataString")
+        binding.etName.setText(data)
+    }
+
     private fun initListener() {
         with(binding) {
-            btnBack.setOnClickListener {
-                findNavController().navigate(R.id.action_SecondFragment_to_FirstFragment)
-            }
-
             btnPlay.setOnClickListener {
                 requireActivity().startService(Intent(requireContext(), MusicService::class.java))
             }
@@ -113,13 +124,22 @@ class SecondFragment : Fragment() {
             btnUpdate.setOnClickListener {
                 val contentValue = ContentValues()
                 contentValue.put(DatabaseProvider.NAME, etName.text.toString())
-                requireActivity().contentResolver.update(DatabaseProvider.CONTENT_URI, contentValue, "NAME = ?", arrayOf(etName.text.toString()))
+                requireActivity().contentResolver.update(
+                    DatabaseProvider.CONTENT_URI,
+                    contentValue,
+                    "NAME = ?",
+                    arrayOf(etName.text.toString())
+                )
                 @Suppress("DEPRECATION")
                 cursorContent?.requery()
             }
 
             btnDelete.setOnClickListener {
-                requireActivity().contentResolver.delete(DatabaseProvider.CONTENT_URI, "NAME = ?", arrayOf(etName.text.toString()))
+                requireActivity().contentResolver.delete(
+                    DatabaseProvider.CONTENT_URI,
+                    "NAME = ?",
+                    arrayOf(etName.text.toString())
+                )
                 @Suppress("DEPRECATION")
                 cursorContent?.requery()
             }
@@ -145,15 +165,5 @@ class SecondFragment : Fragment() {
             null,
             DatabaseProvider.NAME
         )
-    }
-
-    override fun onStop() {
-        super.onStop()
-        requireActivity().unbindService(serviceConnection)
-    }
-
-    override fun onDestroy() {
-        super.onDestroy()
-        cursorDatabase?.close()
     }
 }
