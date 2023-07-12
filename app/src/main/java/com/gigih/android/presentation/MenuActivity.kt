@@ -1,5 +1,6 @@
 package com.gigih.android.presentation
 
+import android.content.Context
 import android.content.Intent
 import android.content.IntentFilter
 import android.os.Bundle
@@ -13,8 +14,10 @@ import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
 import com.gigih.android.R
 import com.gigih.android.data.database.AppDataStore
+import com.gigih.android.data.database.AppPreferences
 import com.gigih.android.databinding.ActivityMenuBinding
 import com.gigih.android.utils.AirplaneModeReceiver
+import com.gigih.android.utils.LanguageHelper
 import com.gigih.android.utils.showToast
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
@@ -25,10 +28,21 @@ class MenuActivity : AppCompatActivity() {
 
     @Inject
     lateinit var dataStore: AppDataStore
+
+    @Inject
+    lateinit var preferences: AppPreferences
+
     private lateinit var airplaneModeReceiver: AirplaneModeReceiver
     private lateinit var appBarConfiguration: AppBarConfiguration
     private lateinit var binding: ActivityMenuBinding
     private var navController: NavController? = null
+
+    override fun attachBaseContext(newBase: Context?) {
+        super.attachBaseContext(newBase)
+        newBase?.let {
+            LanguageHelper(it).updateLocale(it, AppPreferences(baseContext).language)
+        }
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         WindowCompat.setDecorFitsSystemWindows(window, false)

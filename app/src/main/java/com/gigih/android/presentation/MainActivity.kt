@@ -4,6 +4,8 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.appcompat.app.AppCompatDelegate
+import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.Button
@@ -20,15 +22,34 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.tooling.preview.Preview
+import com.gigih.android.data.database.AppPreferences
 import com.gigih.android.ui.theme.GigihAndroidTheme
 import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
+
+    @Inject
+    lateinit var preferences: AppPreferences
+
+    private val themeState by lazy { mutableStateOf(AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM) }
+
+    override fun onResume() {
+        super.onResume()
+        themeState.value = preferences.themeMode
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            GigihAndroidTheme {
+            GigihAndroidTheme(
+                when (themeState.value) {
+                    AppCompatDelegate.MODE_NIGHT_YES -> true
+                    AppCompatDelegate.MODE_NIGHT_NO -> false
+                    else -> isSystemInDarkTheme()
+                }
+            ) {
                 // A surface container using the 'background' color from the theme
                 Surface(
                     modifier = Modifier.fillMaxSize(),

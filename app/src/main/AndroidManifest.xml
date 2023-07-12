@@ -52,6 +52,7 @@
         <activity
             android:name=".presentation.MainActivity"
             android:exported="true"
+            android:configChanges="uiMode"
             android:theme="@style/Theme.GigihAndroid">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

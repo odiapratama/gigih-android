@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="item_themes">
+        <item>Select Themes</item>
+        <item>Default</item>
+        <item>Light</item>
+        <item>Dark</item>
+    </string-array>
+</resources>

@@ -3,13 +3,17 @@ package com.gigih.android.presentation
 import android.Manifest
 import android.content.Intent
 import android.content.pm.PackageManager
+import android.content.res.Configuration
 import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.AdapterView
+import android.widget.ArrayAdapter
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
@@ -18,8 +22,10 @@ import androidx.work.OneTimeWorkRequestBuilder
 import androidx.work.WorkManager
 import com.gigih.android.R
 import com.gigih.android.data.database.AppDataStore
+import com.gigih.android.data.database.AppPreferences
 import com.gigih.android.databinding.FragmentFirstBinding
 import com.gigih.android.utils.Const
+import com.gigih.android.utils.LanguageHelper
 import com.gigih.android.utils.NotificationWorker
 import com.gigih.android.utils.requestPermissionDialog
 import com.gigih.android.utils.showToast
@@ -33,10 +39,32 @@ class FirstFragment : Fragment() {
 
     @Inject
     lateinit var dataStore: AppDataStore
+
+    @Inject
+    lateinit var preferences: AppPreferences
+
     private lateinit var locationPermissionRequest: ActivityResultLauncher<Array<String>>
     private lateinit var requestPermissionLauncher: ActivityResultLauncher<String>
     private lateinit var binding: FragmentFirstBinding
     private var dataIntent: String? = null
+
+    override fun onConfigurationChanged(newConfig: Configuration) {
+        super.onConfigurationChanged(newConfig)
+        updateUi()
+    }
+
+    private fun updateUi() {
+        with(binding) {
+            btnRequestContact.text = getString(R.string.request_contact)
+            btnRequestLocation.text = getString(R.string.request_location)
+            tvShowActivityLifecycle.text = getString(R.string.show_activity_lifecycle)
+            tvShowFragmentLifecycle.text = getString(R.string.show_fragment_lifecycle)
+            tvTheme.text = getString(R.string.theme)
+            tvLanguage.text = getString(R.string.language)
+            btnAddScheduledNotification.text = getString(R.string.add_scheduled_notification)
+            ivFlag.setImageResource(R.mipmap.flag)
+        }
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -171,6 +199,89 @@ class FirstFragment : Fragment() {
 
             btnGoToCarousel.setOnClickListener {
                 findNavController().navigate(R.id.action_FirstFragment_to_CarouselFragment)
+            }
+
+            btnGoToAnimation.setOnClickListener {
+                findNavController().navigate(R.id.action_FirstFragment_to_AnimationFragment)
+            }
+
+            spTheme.adapter = ArrayAdapter.createFromResource(
+                requireContext(),
+                R.array.item_themes,
+                android.R.layout.simple_spinner_dropdown_item
+            )
+
+            spTheme.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+                override fun onItemSelected(
+                    parent: AdapterView<*>?,
+                    view: View?,
+                    position: Int,
+                    id: Long
+                ) {
+                    when (position) {
+                        1 -> {
+                            AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM.let {
+                                AppCompatDelegate.setDefaultNightMode(it)
+                                preferences.themeMode = it
+                            }
+                        }
+
+                        2 -> {
+                            AppCompatDelegate.MODE_NIGHT_NO.let {
+                                AppCompatDelegate.setDefaultNightMode(it)
+                                preferences.themeMode = it
+                            }
+                        }
+
+                        3 -> {
+                            AppCompatDelegate.MODE_NIGHT_YES.let {
+                                AppCompatDelegate.setDefaultNightMode(it)
+                                preferences.themeMode = it
+                            }
+                        }
+                    }
+                }
+
+                override fun onNothingSelected(parent: AdapterView<*>?) {}
+            }
+
+            spLanguage.adapter = ArrayAdapter.createFromResource(
+                requireContext(),
+                R.array.item_language,
+                android.R.layout.simple_spinner_dropdown_item
+            )
+
+            spLanguage.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+                override fun onItemSelected(
+                    parent: AdapterView<*>?,
+                    view: View?,
+                    position: Int,
+                    id: Long
+                ) {
+                    when (position) {
+                        1 -> {
+                            preferences.language = "en"
+                            // Option restart activity
+                            startActivity(
+                                Intent(requireContext(), MenuActivity::class.java)
+                            )
+                            requireActivity().finish()
+                        }
+
+                        2 -> {
+                            preferences.language = "in"
+                            // Option onConfigurationChanged
+                            LanguageHelper(requireContext()).applyLocalizedContext(
+                                requireContext(),
+                                "in"
+                            ) {
+                                onConfigurationChanged(it)
+                            }
+                        }
+                    }
+                }
+
+                override fun onNothingSelected(parent: AdapterView<*>?) {}
             }
         }
     }

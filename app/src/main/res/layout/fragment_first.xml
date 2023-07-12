@@ -51,6 +51,7 @@
 
         <TextView
             android:id="@+id/tvShowActivityLifecycle"
+            style="@style/textMediumTeal"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:text="@string/show_activity_lifecycle"
@@ -61,6 +62,7 @@
 
         <TextView
             android:id="@+id/tvShowFragmentLifecycle"
+            style="@style/textRegular"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:text="@string/show_fragment_lifecycle"
@@ -84,38 +86,98 @@
             app:layout_constraintTop_toBottomOf="@id/switchActivity" />
 
         <TextView
+            android:id="@+id/tvTheme"
+            style="@style/textTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="8dp"
+            android:text="@string/theme"
+            app:layout_constraintEnd_toStartOf="@id/spTheme"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvShowFragmentLifecycle" />
+
+        <androidx.appcompat.widget.AppCompatSpinner
+            android:id="@+id/spTheme"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/switchFragment" />
+
+        <ImageView
+            android:id="@+id/ivFlag"
+            android:layout_width="30dp"
+            android:layout_height="0dp"
+            android:contentDescription="@null"
+            android:src="@mipmap/flag"
+            app:layout_constraintBottom_toBottomOf="@id/tvLanguage"
+            app:layout_constraintDimensionRatio="H, 1:1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/tvLanguage" />
+
+        <TextView
+            android:id="@+id/tvLanguage"
+            style="@style/textTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="8dp"
+            android:text="@string/language"
+            app:layout_constraintBottom_toBottomOf="@id/spLanguage"
+            app:layout_constraintEnd_toStartOf="@id/spTheme"
+            app:layout_constraintStart_toEndOf="@id/ivFlag"
+            app:layout_constraintTop_toTopOf="@id/spLanguage" />
+
+        <androidx.appcompat.widget.AppCompatSpinner
+            android:id="@+id/spLanguage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/spTheme" />
+
+        <TextView
             android:id="@+id/tvDataIntent"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            tools:text="Data intent"
-            app:layout_constraintTop_toBottomOf="@id/switchFragment" />
+            android:layout_marginTop="16dp"
+            app:layout_constraintTop_toBottomOf="@id/tvLanguage"
+            tools:text="Data intent" />
 
         <Button
             android:id="@+id/btnImplicitIntent"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/implicit_intent"
             android:layout_marginTop="8dp"
-            app:layout_constraintTop_toBottomOf="@id/tvDataIntent"
-            app:layout_constraintStart_toStartOf="parent" />
+            android:text="@string/implicit_intent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvDataIntent" />
 
         <Button
             android:id="@+id/btnAddScheduledNotification"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/add_scheduled_notification"
             android:layout_marginTop="8dp"
-            app:layout_constraintTop_toBottomOf="@id/btnImplicitIntent"
-            app:layout_constraintStart_toStartOf="parent" />
+            android:text="@string/add_scheduled_notification"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btnImplicitIntent" />
 
         <Button
             android:id="@+id/btnGoToCarousel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/go_to_carousel"
             android:layout_marginTop="8dp"
-            app:layout_constraintTop_toBottomOf="@id/btnAddScheduledNotification"
-            app:layout_constraintStart_toStartOf="parent" />
+            android:text="@string/go_to_carousel"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btnAddScheduledNotification" />
+
+        <Button
+            android:id="@+id/btnGoToAnimation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@string/go_to_animation"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btnGoToCarousel" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
