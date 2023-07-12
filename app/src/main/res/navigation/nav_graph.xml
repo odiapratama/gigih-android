@@ -26,6 +26,14 @@
             app:exitAnim="@anim/slide_out_left"
             app:popEnterAnim="@anim/slide_in_left"
             app:popExitAnim="@anim/slide_out_right" />
+
+        <action
+            android:id="@+id/action_FirstFragment_to_AnimationFragment"
+            app:destination="@id/AnimationFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
     </fragment>
 
     <fragment
@@ -39,5 +47,11 @@
         android:name="com.gigih.android.presentation.CarouselFragment"
         android:label="Carousel Fragment"
         tools:layout="@layout/fragment_carousel" />
+
+    <fragment
+        android:id="@+id/AnimationFragment"
+        android:name="com.gigih.android.presentation.animation.AnimationFragment"
+        android:label="Carousel Fragment"
+        tools:layout="@layout/fragment_animation" />
 
 </navigation>

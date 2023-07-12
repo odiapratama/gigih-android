@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".presentation.animation.AnimationFragment">
+
+    <TextView
+        android:id="@+id/tvTitle"
+        style="@style/textMediumTeal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/app_name"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toTopOf="@id/btnFadeInInAnimation"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btnFadeInInAnimation"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:text="@string/fade_in"
+        app:layout_constraintBottom_toTopOf="@id/btnZoomInAnimation"
+        app:layout_constraintEnd_toStartOf="@id/btnFadeOutAnimation"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/btnFadeOutAnimation"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="9dp"
+        android:text="@string/fade_out"
+        app:layout_constraintBottom_toTopOf="@id/btnZoomOutAnimation"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/btnFadeInInAnimation" />
+
+    <Button
+        android:id="@+id/btnZoomInAnimation"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:text="@string/zoom_in"
+        app:layout_constraintBottom_toTopOf="@id/btnSlideUpAnimation"
+        app:layout_constraintEnd_toStartOf="@id/btnZoomOutAnimation"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/btnZoomOutAnimation"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="9dp"
+        android:text="@string/zoom_out"
+        app:layout_constraintBottom_toTopOf="@id/btnSlideDownAnimation"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/btnZoomInAnimation" />
+
+    <Button
+        android:id="@+id/btnSlideUpAnimation"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:text="@string/slide_up"
+        app:layout_constraintBottom_toTopOf="@id/btnBounceAnimation"
+        app:layout_constraintEnd_toStartOf="@id/btnSlideDownAnimation"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/btnSlideDownAnimation"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="9dp"
+        android:text="@string/slide_down"
+        app:layout_constraintBottom_toTopOf="@id/btnRotateAnimation"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/btnSlideUpAnimation" />
+
+    <Button
+        android:id="@+id/btnBounceAnimation"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:text="@string/bounce"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/btnRotateAnimation"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/btnRotateAnimation"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="9dp"
+        android:text="@string/rotate"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/btnBounceAnimation" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
