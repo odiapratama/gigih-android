@@ -1,7 +1,6 @@
 <resources>
     <string name="app_name">Gigih Android</string>
     <string name="title_activity_menu">MenuActivity</string>
-    <!-- Strings used for fragments for navigation -->
     <string name="first_fragment_label">First Fragment</string>
     <string name="second_fragment_label">Second Fragment</string>
     <string name="next">Next</string>
@@ -26,4 +25,15 @@
     <string name="implicit_intent">Implicit Intent</string>
     <string name="add_scheduled_notification">Add Scheduled Notification</string>
     <string name="go_to_carousel">Go to carousel</string>
+    <string name="theme">Theme</string>
+    <string name="language">Language</string>
+    <string name="bounce">Bounce</string>
+    <string name="rotate">Rotate</string>
+    <string name="slide_up">Slide Up</string>
+    <string name="slide_down">Slide Down</string>
+    <string name="zoom_in">Zoom In</string>
+    <string name="zoom_out">Zoom Out</string>
+    <string name="fade_in">Fade In</string>
+    <string name="fade_out">Fade Out</string>
+    <string name="go_to_animation">Go to Animation</string>
 </resources>

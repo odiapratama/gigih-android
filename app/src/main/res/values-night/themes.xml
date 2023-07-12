@@ -1,7 +1,28 @@
 <resources>
+    <style name="Theme.GigihAndroid" parent="Theme.MaterialComponents.DayNight.NoActionBar" />
     <!-- Base application theme. -->
     <style name="Base.Theme.GigihAndroid" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Customize your dark theme here. -->
         <!-- <item name="colorPrimary">@color/my_dark_primary</item> -->
+    </style>
+
+    <style name="textMedium">
+        <item name="android:fontFamily">@font/montserrat_medium</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="textRegular">
+        <item name="android:fontFamily">@font/montserrat_regular</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="textMediumTeal">
+        <item name="android:fontFamily">@font/montserrat_medium</item>
+        <item name="android:textColor">@color/teal_200</item>
+    </style>
+
+    <style name="textTitle">
+        <item name="android:fontFamily">@font/montserrat_medium</item>
+        <item name="android:textColor">@color/mango</item>
     </style>
 </resources>

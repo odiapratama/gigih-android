@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Gigih Android</string>
+    <string name="title_activity_menu">MenuActivity</string>
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Lanjut</string>
+    <string name="previous">Sebelumnya</string>
+    <string name="rationale_title">Meminta Access</string>
+    <string name="rationale_desc">Aplikasi ini mengandalkan akses baca ke kontak Anda. Kami memerlukan akses ke izin ini untuk menemukan kontak Anda di basis data kami dan menyarankan orang yang mungkin Anda kenal. Kami tidak akan menyimpan info kontak apa pun di basis data kami jika itu bukan bagian dari platform kami. Untuk info lebih lanjut baca kebijakan privasi kami.</string>
+    <string name="permission_granted">Izin diberikan</string>
+    <string name="permission_denied">Izin ditolak</string>
+    <string name="request_contact">Izin Kontak</string>
+    <string name="request_location">Izin Lokasi</string>
+    <string name="play_music">Mainkan musik</string>
+    <string name="stop_music">Stop musok</string>
+    <string name="download">Unduh</string>
+    <string name="get_data">Unduh Data</string>
+    <string name="back">Kembali</string>
+    <string name="insert">Sisipkan</string>
+    <string name="update">Perbarui</string>
+    <string name="delete">Hapus</string>
+    <string name="clear">Bersihkan</string>
+    <string name="show_activity_lifecycle">Tampilkan Activity Lifecycle</string>
+    <string name="show_fragment_lifecycle">Tampilkan Fragment Lifecycle</string>
+    <string name="implicit_intent">Implicit Intent</string>
+    <string name="add_scheduled_notification">Tambah Scheduled Notification</string>
+    <string name="go_to_carousel">Go to carousel</string>
+    <string name="theme">Tema</string>
+    <string name="language">Bahasa</string>
+    <string name="bounce">Bounce</string>
+    <string name="rotate">Rotate</string>
+    <string name="slide_up">Slide Up</string>
+    <string name="slide_down">Slide Down</string>
+    <string name="zoom_in">Zoom In</string>
+    <string name="zoom_out">Zoom Out</string>
+    <string name="fade_in">Fade In</string>
+    <string name="fade_out">Fade Out</string>
+    <string name="go_to_animation">Go to Animation</string>
+</resources>

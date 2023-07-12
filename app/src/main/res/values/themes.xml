@@ -1,10 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <style name="Theme.GigihAndroid" parent="Theme.MaterialComponents.DayNight.NoActionBar" />
+    <style name="Theme.GigihAndroid" parent="Theme.MaterialComponents.Light.NoActionBar" />
     <!-- Base application theme. -->
-    <style name="Base.Theme.GigihAndroid" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+    <style name="Base.Theme.GigihAndroid" parent="Theme.MaterialComponents.Light.NoActionBar">
         <!-- Customize your light theme here. -->
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+    </style>
+
+    <style name="textMedium">
+        <item name="android:fontFamily">@font/montserrat_medium</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+    <style name="textRegular" parent="textMedium">
+        <item name="android:fontFamily">@font/montserrat_regular</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+    <style name="textMediumTeal">
+        <item name="android:fontFamily">@font/montserrat_medium</item>
+        <item name="android:textColor">@color/teal_200</item>
+    </style>
+
+    <style name="textTitle">
+        <item name="android:fontFamily">@font/montserrat_medium</item>
+        <item name="android:textColor">@color/blue_grey</item>
     </style>
 </resources>
