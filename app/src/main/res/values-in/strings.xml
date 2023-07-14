@@ -37,4 +37,6 @@
     <string name="fade_in">Fade In</string>
     <string name="fade_out">Fade Out</string>
     <string name="go_to_animation">Go to Animation</string>
+    <string name="go_to_listview">Go to ListView</string>
+    <string name="go_to_recyclerview">Go to RecyclerView</string>
 </resources>

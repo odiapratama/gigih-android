@@ -205,6 +205,14 @@ class FirstFragment : Fragment() {
                 findNavController().navigate(R.id.action_FirstFragment_to_AnimationFragment)
             }
 
+            btnGoToListView.setOnClickListener {
+                findNavController().navigate(R.id.action_FirstFragment_to_ListViewFragment)
+            }
+
+            btnGoToRecyclerView.setOnClickListener {
+                findNavController().navigate(R.id.action_FirstFragment_to_RecyclerViewFragment)
+            }
+
             spTheme.adapter = ArrayAdapter.createFromResource(
                 requireContext(),
                 R.array.item_themes,

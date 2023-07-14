@@ -34,6 +34,22 @@
             app:exitAnim="@anim/slide_out_left"
             app:popEnterAnim="@anim/slide_in_left"
             app:popExitAnim="@anim/slide_out_right" />
+
+        <action
+            android:id="@+id/action_FirstFragment_to_ListViewFragment"
+            app:destination="@id/ListViewFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+
+        <action
+            android:id="@+id/action_FirstFragment_to_RecyclerViewFragment"
+            app:destination="@id/RecyclerViewFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
     </fragment>
 
     <fragment
@@ -51,7 +67,19 @@
     <fragment
         android:id="@+id/AnimationFragment"
         android:name="com.gigih.android.presentation.animation.AnimationFragment"
-        android:label="Carousel Fragment"
+        android:label="Animation Fragment"
         tools:layout="@layout/fragment_animation" />
+
+    <fragment
+        android:id="@+id/ListViewFragment"
+        android:name="com.gigih.android.presentation.listview.ListViewFragment"
+        android:label="ListView Fragment"
+        tools:layout="@layout/fragment_list_view" />
+
+    <fragment
+        android:id="@+id/RecyclerViewFragment"
+        android:name="com.gigih.android.presentation.recyclerview.RecyclerViewFragment"
+        android:label="Recycler Fragment"
+        tools:layout="@layout/fragment_list_view" />
 
 </navigation>
